@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\adminController;
+Route::get('/',[HomeController::class,'paginaInicial']);
+Route::get('/admin-home/',[HomeController::class,'perfilAdmin']);
+Route::get('/admin-categoria/',[adminController::class,'irCategoria']);
+Route::get('/admin-productos/',[adminController::class,'irComandos']);
+Route::get('/admin-comandos/',[adminController::class,'irProductos']);
