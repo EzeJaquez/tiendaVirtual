@@ -19,8 +19,6 @@ class CreateDetalleTable extends Migration
             $table->integer('id_producto');
             $table->integer('cantidad');
             $table->integer('precio');
-            
-            $table->rememberToken();
             $table->timestamps();
         });
     }

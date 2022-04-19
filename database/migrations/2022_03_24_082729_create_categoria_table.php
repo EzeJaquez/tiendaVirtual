@@ -14,11 +14,11 @@ class CreateCategoriaTable extends Migration
     public function up()
     {
         Schema::create('categoria', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_producto');
-            $table->string('nombre');
+            $table->bigIncrements('id');
+            $table->string('nombre')->unique();
+            $table->string('slug')->unique();
             $table->string('descripcion');
-            $table->rememberToken();
+            $table->string('estado')->default('activada')->nullable();
             $table->timestamps();
         });
     }

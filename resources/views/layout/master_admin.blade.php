@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('style_admin/layout.css') }}">
-
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- Font Awesome JS -->
+    <script src="https://kit.fontawesome.com/4b5a7d8473.js" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
@@ -25,6 +26,8 @@
     <?php
         use App\Http\Controllers\HomeController;
         use App\Http\Controllers\adminController;
+        use App\Http\Controllers\CategoriaController;
+        use App\Http\Controllers\ProductoController;
     ?>
     @section('nav-layout')
     <div class="wrapper">
@@ -40,13 +43,13 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="{{ action([HomeController::class,'perfilAdmin']) }}">Home</a>
+                    <a href="{{route('admin-home')}}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ action([adminController::class,'irProductos'])}}">Productos</a>
+                    <a href="{{route('admin-producto.index')}}">Productos</a>
                 </li>
                 <li>
-                    <a href="{{ action([adminController::class,'irCategoria'])}}">Categorias</a>
+                    <a href="{{route('admin-categoria.index')}}">Categorias</a>
                 </li>
                 <!-- <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">categorias</a>
@@ -63,10 +66,10 @@
                     </ul>
                 </li> -->
                 <li>
-                    <a href="{{ action([adminController::class,'irComandos']) }}">comandos</a>
+                    <a href="#">comandos</a>
                 </li>
                 <li>
-                    <a href="{{ action([HomeController::class,'paginaInicial']) }}">Cerrar sesion</a>
+                    <a href="#">Cerrar sesion</a>
                 </li>
             </ul>
 
@@ -83,7 +86,8 @@
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
+                    <h1>@yield('seccion')</h1>
+                    <h2 >ONE HIT</h2>
                     <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">

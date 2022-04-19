@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function paginaInicial(){
-        $titulo = "Home";
+    public function home(){
         return view('Home');
     }
-    public function perfilAdmin(){
+    public function adminHome(){
         return view('admin.Home');
     }
 

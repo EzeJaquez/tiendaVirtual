@@ -17,8 +17,7 @@ class CreatePedidoTable extends Migration
             $table->increments('id');
             $table->integer('id_usuario');
             $table->integer('precio_total');
-            $table->rememberToken();
-            
+            $table->timestamps();
         });
     }
 
