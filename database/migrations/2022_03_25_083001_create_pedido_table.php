@@ -14,10 +14,12 @@ class CreatePedidoTable extends Migration
     public function up()
     {
         Schema::create('pedido', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_usuario');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('usuario_id');
             $table->integer('precio_total');
             $table->timestamps();
+
+            $table->foreign('usuario_id')->references('id')->on('users');
         });
     }
 

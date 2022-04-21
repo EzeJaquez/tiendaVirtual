@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>The Ocean - @yield('titulo')</title>
+    <title>ONE HIT - @yield('titulo')</title>
 
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -38,42 +38,30 @@
             </div>
 
             <div class="sidebar-header">
-                <h3>Menu de administrador</h3>
+                <h3><a href="{{route('admin-home')}}">Menu de administrador</a></h3>
             </div>
-
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="{{route('admin-home')}}">Home</a>
-                </li>
-                <li>
+             <!-- setActive('home') -->
+             <!-- setActive('home') -->
+            <ul class="ul_nav">
+                <li class="{{request()->routeIs('admin-producto.*')? 'active' : '' }}">
                     <a href="{{route('admin-producto.index')}}">Productos</a>
                 </li>
-                <li>
+                <li class="{{request()->routeIs('admin-categoria.*')? 'active' : '' }}">
                     <a href="{{route('admin-categoria.index')}}">Categorias</a>
                 </li>
-                <!-- <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">categorias</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li> -->
+                <li><a href="#">comandos</a></li>
+                <li><a href="{{route('home')}}">Volver a la web</a></li>
                 <li>
-                    <a href="#">comandos</a>
-                </li>
-                <li>
-                    <a href="#">Cerrar sesion</a>
+                    <a href="#" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Cerrar session
+                    </a>
                 </li>
             </ul>
-
         </nav>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
         @show
         <!-- Page Content  -->
         <div id="content">
@@ -87,7 +75,7 @@
                         <i class="fas fa-align-justify"></i>
                     </button>
                     <h1>@yield('seccion')</h1>
-                    <h2 >ONE HIT</h2>
+                    <h2><a href="{{route('admin-home')}}">ONE HIT</a></h2>
                     <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">

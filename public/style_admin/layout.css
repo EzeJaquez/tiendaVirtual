@@ -66,6 +66,7 @@ a:focus {
 
 #sidebar.active {
     left: 0;
+    list-style: none;
 }
 
 #dismiss{
@@ -112,6 +113,10 @@ a:focus {
     padding: 20px 0;
     border-bottom: 1px solid #424243ce;
 }
+.ul_nav{
+    list-style-type: none;
+    padding: 0px;
+}
 
 #sidebar ul p {
     color: #fff;
@@ -122,6 +127,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    list-style-type:none;
 }
 
 #sidebar ul li a:hover {
@@ -132,7 +138,7 @@ a:focus {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #424243ce;
+    background: #4f1313ce;
 }
 
 a[data-toggle="collapse"] {

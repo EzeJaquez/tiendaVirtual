@@ -19,6 +19,17 @@ use App\Http\Controllers\ProductoController;
 
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/admin-home',[HomeController::class,'adminHome'])->name('admin-home');
+/*---------------------------------------------------------------------------------------------------*/
+/*                                    USER-SECTION                                                  */
+/*---------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------USER-LOGIN----------------------------------------------*/
+
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*                                    ADMIN-SECTION                                                  */
+/*---------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------ADMIN-CATEGORIAS-----------------------------------------------*/
 Route::get('/admin-categoria',[CategoriaController::class,'index'])->name('admin-categoria.index');
@@ -34,3 +45,6 @@ Route::get('/admin-producto/{producto}/editar',[ProductoController::class,'edit'
 Route::post('/admin-producto/store',[ProductoController::class,'store'])->name('admin-producto.store');
 Route::post('/admin-producto/orden',[ProductoController::class,'orden'])->name('admin-producto.orden');
 Route::patch('/admin-producto/{producto}/actualizar', [ProductoController::class,'update'])->name('admin-producto.update');
+
+Auth::routes();
+

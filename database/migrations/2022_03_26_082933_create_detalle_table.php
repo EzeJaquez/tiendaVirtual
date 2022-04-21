@@ -14,12 +14,15 @@ class CreateDetalleTable extends Migration
     public function up()
     {
         Schema::create('detalle', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_pedido');
-            $table->integer('id_producto');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('pedido_id');
+            $table->unsignedBigInteger('producto_id');
             $table->integer('cantidad');
             $table->integer('precio');
             $table->timestamps();
+
+            $table->foreign('pedido_id')->references('id')->on('pedido');
+            $table->foreign('producto_id')->references('id')->on('producto');
         });
     }
 
