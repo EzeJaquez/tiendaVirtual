@@ -3,15 +3,14 @@
 @section('seccion','Administrar Categorias')
 @section('content')
 <?php use App\Http\Controllers\CategoriaController ?>
-<form method="POST" action="{{ route('admin-categoria.orden') }}">
+<form method="POST" action="{{ route('admin-categoria.filtro') }}">
     @csrf
-    <div class="form-group">
-        <label for="ordenar">Ordenar por </label>
-        <select name="estado" class="form-select" aria-label="Des/Activar categoria" required>
-            <option value="ASC">Activadas</option>
-            <option value="DESC">Desactivadas</option>
-        </select>
-        <button type="submit" class="btn btn-primary">ordenar</button>
+    <div class="form-group buscador_admin">
+        <input name= "buscador" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Busca</button>
+        @if($filtro)
+            <a class="btn btn-info" href="{{ route('admin-categoria.index') }} ">mostrar todo</a>
+        @endif
     </div>
 </form>
 
@@ -35,5 +34,5 @@
         <div>No hay proyectos para mostrar </div>
     @endforelse
 </table>
-<a href="{{ route('admin-categoria.create') }}">Añadir categoria</a>
+<a class="btn btn-secondary" href="{{ route('admin-categoria.create') }}">Añadir categoria</a>
 @stop

@@ -3,7 +3,7 @@
 @section('seccion','Editar Productos')
 @section('content')
 
-<form method="POST" action="{{ route('admin-producto.update',$producto)  }}">
+<form method="POST" action="{{ route('admin-producto.update',$producto)  }}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <div class="form-group">
@@ -28,7 +28,7 @@
     <div class="form-group">
         <label for="estado">Estado</label>
         <select name="estado" class="form-select" aria-label="Des/Activar categoria" required>
-            <option value="" selected>------</option>    
+            <option value="{{$producto->estado}}" selected>{{$producto->estado}}</option>    
             <option value="activado">activar</option>
             <option value="desactivado">Desactivar</option>
         </select>
@@ -42,10 +42,14 @@
         <input name="stock" type="number" step="1" class="form-control" value="{{$producto->stock}}" required/> 
     </div>
     <div class="form-group">
+        <label for="imagen">Imagen</label> <br>
+        <input type="file" name="imagen" id="imagen">
+    </div>
+    <div class="form-group">
         <label for="descripcion">Descripción</label>
         <textarea name="descripcion" class="form-control" rows="3" required>{{$producto->descripcion}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Añadir producto</button> <a href="{{route('admin-producto.index')}}">volver</a>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button> <a href="{{route('admin-producto.index')}}">volver</a>
 </form>
 
 

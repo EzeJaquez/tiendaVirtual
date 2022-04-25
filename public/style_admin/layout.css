@@ -29,7 +29,6 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -188,7 +187,6 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
@@ -204,9 +202,9 @@ a.article:hover {
     width: 100%;
     padding: 20px;
     transition: all 0.3s;
-    position: absolute;
-    top: 120%;
-    right: 0;
+    margin-top:30px;
+    background-color: black;
+    color:red;
 }
 
 /* ---------------------------------------------------
@@ -230,3 +228,170 @@ a.article:hover {
     padding: 5px 10px 5px 10px;
 }
 
+
+/* ---------------------------------------------------
+    ESTILO -> PAGINA info producto
+----------------------------------------------------- */
+#_producto{
+    padding-top: 140px;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 30% 50%;
+    grid-template-rows: auto;
+    justify-content: center;    
+    column-gap: 20px;
+}
+.nombre_pro{
+    font-size: x-large;
+}
+.pintar_precio{
+    text-align: center;
+    width: 80px;
+    Color: white;
+    background-color: yellowgreen;
+    border-radius: 3px;
+}
+.img_info_pro{
+    border-right: 2px red solid;
+}
+.stock_pro{
+    color:rgb(231, 133, 133);
+    font-size: small;
+}
+
+.subtitulo_cat{
+    font-size: x-small;
+    color:gray;
+}
+
+/* ---------------------------------------------------
+    ESTILO -> pagina home
+----------------------------------------------------- */
+
+._home_pro{
+    margin: auto;
+    width: 70%;
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    justify-content: center;    
+    row-gap: 15px;
+    
+}
+
+.carta{
+    border-color: red;
+    height: 250px !important;
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: 160px 50px;
+}
+
+.carta:hover{
+    transform: scale(1.1);
+}
+
+.info_cart{
+    font-size: 16px;
+}
+
+.pos_carta_img{
+    place-self: center;
+}
+
+/* ---------------------------------------------------
+    ESTILO -> cabezera
+----------------------------------------------------- */
+
+.cabezera_master{
+    display:grid;
+    grid-template-columns: 20% 70%;
+    grid-template-rows: auto;
+}
+
+.buscador_master{
+    display:grid;
+    grid-template-columns: 70% 20%;
+    grid-template-rows: auto;
+}
+
+.buscador_admin{
+    display:grid;
+    grid-template-columns: 20% 5% 10%;
+    column-gap: 5px;
+    grid-template-rows: auto;
+}
+
+
+.form_compra_btn{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+.contenido_dentro{
+    min-height:  560px;
+}
+
+#ali{
+    height: 260px;
+    width: 70%;
+    margin:auto;
+    background: black;
+    background-image: url('../images/ali.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    color:white;
+    font-size: 40px;
+    text-align: center;
+    margin-top:40px;
+    margin-bottom: 40px;
+    border: 2px solid red;
+    border-radius: 20px; 
+}
+#ali p{
+    padding: 20px;
+    font-size: large !important;
+    color:white;
+}
+
+.cat{
+    height: 80px;
+    width: 70%;
+    margin:auto;
+    background: black;
+    background-image: url('../images/ali.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    color:white;
+    font-size: 40px;
+    text-align: center;
+    margin-top:40px;
+    margin-bottom: 40px;
+    border: 2px solid red;
+    border-radius: 20px; 
+}
+.cat p{
+    padding: 20px;
+    font-size: large !important;
+    color:white;
+}
+
+.one_hit{
+    color:red;
+}
+
+.navegador{
+    background-image: url('../images/rejas.jpg');
+    background-position: center right;
+}
+
+.container{
+    padding-top: 100px !important;
+}
+
+.pedido_user{
+    padding-top: 40px;
+    width: 70%;
+    margin:auto;
+}

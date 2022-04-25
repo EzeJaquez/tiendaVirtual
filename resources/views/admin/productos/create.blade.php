@@ -3,7 +3,7 @@
 @section('seccion','Registrar Producto')
 @section('content')
 
-<form method="POST" action="{{ route('admin-producto.store') }}">
+<form method="POST" action="{{ route('admin-producto.store') }} " enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="nombre">Nombre</label>
@@ -16,7 +16,7 @@
     <div class="form-group">
         <label for="categoria_id">Categoria</label>
         <select name="categoria_id" class="form-select" aria-label="Categorias productos" required>
-            <option value="" selected>------</option>
+            <option value="" selected>-----</option>
         @forelse($categorias as $categoria)
             <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
         @empty  
@@ -40,10 +40,14 @@
         <input name="stock" type="number" step="1" class="form-control" required/> 
     </div>
     <div class="form-group">
+        <label for="imagen">Imagen</label> <br>
+        <input type="file" name="imagen" id="imagen">
+    </div>
+    <div class="form-group">
         <label for="descripcion">Descripción</label>
         <textarea name="descripcion" class="form-control" rows="3" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Añadir Categoria</button> <a href="{{route('admin-producto.index')}}">volver</a>
+    <button type="submit" class="btn btn-primary">Añadir Producto</button> <a href="{{route('admin-producto.index')}}">volver</a>
 </form>
 
 

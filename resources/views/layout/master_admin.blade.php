@@ -43,6 +43,7 @@
              <!-- setActive('home') -->
              <!-- setActive('home') -->
             <ul class="ul_nav">
+                <li><a href="{{route('home')}}">Volver a la web</a></li>
                 <li class="{{request()->routeIs('admin-producto.*')? 'active' : '' }}">
                     <a href="{{route('admin-producto.index')}}">Productos</a>
                 </li>
@@ -50,7 +51,6 @@
                     <a href="{{route('admin-categoria.index')}}">Categorias</a>
                 </li>
                 <li><a href="#">comandos</a></li>
-                <li><a href="{{route('home')}}">Volver a la web</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -65,44 +65,28 @@
         @show
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navegador">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-danger">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-                    <h1>@yield('seccion')</h1>
-                    <h2><a href="{{route('admin-home')}}">ONE HIT</a></h2>
-                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div> -->
+                    <h1 style="color:white;">@yield('seccion')</h1>
+                    <h2><a class="one_hit" href="{{route('admin-home')}}">ONE HIT</a></h2>
                 </div>
             </nav>
 
-            <div style="width:90%; margin:auto;">
+            <div class="contenido_dentro" style="width:90%; margin:auto; margin-top:40px;">
                 @yield('content')
             </div>
-        </div>
-        <div id="footer">
-            @section('footer')  
-                <h4>Pie de pagina</h4>
-            @show
+            <div id="footer">
+                    @section('footer')  
+                        <h4>Pie de pagina</h4>
+                    @show
+            </div>
         </div>
     </div>
     <div class="overlay"></div>

@@ -17,6 +17,7 @@ class CreatePedidoTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('usuario_id');
             $table->integer('precio_total');
+            $table->string('estado')->default('pendent');
             $table->timestamps();
 
             $table->foreign('usuario_id')->references('id')->on('users');

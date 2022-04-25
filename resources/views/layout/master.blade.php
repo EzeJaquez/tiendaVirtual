@@ -45,23 +45,32 @@
             </div>
 
             <div class="sidebar-header">
-                <h3><a href="{{route('home')}}">ONE HIT</a></h3>
+                <h3><a  class="one_hit " href="{{route('home')}}">ONE HIT</a></h3>
             </div>
 
              <!-- setActive('home') -->
              <!-- setActive('home') -->
             <ul class="ul_nav">
                 @auth
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Perfil {{auth()->user()->name}}</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="{{route('perfil.edit')}}">Editar perfil</a>
+                            </li>
+                            <li>
+                                <a href="{{route('perfil.pedidos')}}">Ver pedidos</a>
+                            </li>
+                        </ul>
+                    </li>
                     @if(auth()->user()->role == 'admin')
-                        <li><a href="{{ route('admin-home') }}">Administrador</a></li>
-                    @else
-                        <li><a href="#">{{auth()->user()->name}}</a></li>
+                        <li><a href="{{ route('admin-home') }}">Back End</a></li>   
                     @endif
                 @endauth
                 @forelse($categorias as $categoria)
-                        <li class="">
-                            <a href="#">{{$categoria->nombre}}</a>
-                        </li>
+                        @if($categoria->estado == 'activada')
+                            <li class=""><a href="{{ route('producto-cat', $categoria) }}">{{$categoria->nombre}}</a></li>
+                        @endif
                 @empty  
                         <li>Sin categorias disponibles</li>
                 @endforelse
@@ -77,23 +86,7 @@
                         </a>
                     </li>
                 @endguest
-                <!-- <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">categorias</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li> -->
-                <?php //{{route('login')}} ?>
             </ul>
-
         </nav>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
@@ -101,45 +94,36 @@
         @show
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav  class="navegador navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-danger">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-                    <h1><a href="{{route('home')}}">ONE HIT</a></h1>
-                    <h3> <a href='#'><i class="fa-solid fa-cart-shopping"></a></i> | @yield('seccion')</h3>
-                    
-                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div> -->
+                    <h1><a class="one_hit " href="{{route('home')}}">ONE HIT</a></h1>
+                    <div class="cabezera_master ">
+                        <h3> <a class="btn btn-danger" href="{{ route('cart.checkout') }}"><i class="fa-solid fa-cart-shopping"></i></a></h3>
+                        <form method="POST" action="{{ route('buscador_home') }}">
+                            @csrf
+                            <div class="form-group buscador_master">
+                                <input name= "buscador" class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Busca">
+                                <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </nav>
 
-            <div style="width:90%; margin:auto;">
+            <div class="contenido_dentro" >
                 @yield('content')
             </div>
-        </div>
-        <div id="footer">
-            @section('footer')  
-                <h4>Pie de pagina</h4>
-            @show
+            <div id="footer">
+                    @section('footer')  
+                        <h4>ONE HIT</h4>
+                    @show
+            </div>
         </div>
     </div>
     <div class="overlay"></div>

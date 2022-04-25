@@ -12,8 +12,8 @@ class CategoriaController extends Controller
     {
         //Lisar recursos
         $categorias_info = Categoria::orderBy('estado','ASC')->get();
-
-        return view('admin.categorias.home', compact('categorias_info'));
+        $filtro = false;
+        return view('admin.categorias.home', compact('categorias_info','filtro'));
     }
 
     public function create()
@@ -34,14 +34,21 @@ class CategoriaController extends Controller
         return view('admin.categorias.home', compact('categorias_info'));
     }
 
+    public function filtro(){
+        $busqueda = request('buscador');
+        $categorias_info = Categoria::where('nombre','LIKE','%'.$busqueda.'%')
+                                    ->orWhere('descripcion','LIKE','%'.$busqueda.'%')
+                                    ->get();
+        $filtro = true;
+        return view('admin.categorias.home', compact('categorias_info','filtro'));
+    }
+
     public function edit(Categoria $categoria)
     {
         return view('admin.categorias.edit',[
             'categoria' => $categoria
         ]);
     }
-
-
 
     public function update(Categoria $categoria)
     {

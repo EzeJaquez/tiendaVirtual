@@ -19,7 +19,7 @@ class CreateProductoTable extends Migration
             $table->string('nombre')->unique();
             $table->string('slug')->unique();
             $table->string('descripcion');
-            $table->binary('imagen')->nullable();
+            $table->string('imagen')->nullable();
             $table->integer('precio');
             $table->integer('stock');
             $table->string('estado');
