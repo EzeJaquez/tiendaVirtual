@@ -18,7 +18,6 @@ class ProductoController extends Controller
             ->join('categoria','categoria.id','=','producto.categoria_id')
             ->orderBy('producto.estado','ASC')->get();
 
-       
             $filtro = false;
         return view('admin.productos.home', compact('info_productos','filtro'));
     }
@@ -133,10 +132,5 @@ class ProductoController extends Controller
             'imagen' => $entrada['imagen'],
         ]);
         return redirect()->route('admin-producto.index');
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

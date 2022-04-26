@@ -72,5 +72,9 @@ Route::get('/admin-producto/{producto}/editar',[ProductoController::class,'edit'
 Route::post('/admin-producto/store',[ProductoController::class,'store'])->name('admin-producto.store');
 Route::post('/admin-producto/filtro',[ProductoController::class,'filtro'])->name('admin-producto.filtro');
 Route::patch('/admin-producto/{producto}/actualizar', [ProductoController::class,'update'])->name('admin-producto.update');
-
+/*------------------------------------ADMIN-PEDIDOS-----------------------------------------------*/
+Route::get('/admin-pedidos',[PedidosController::class,'index_admin'])->name('admin-pedidos.index');
+Route::get('/admin-pedidos/detalle/{pedido}/{precio_total}',[PedidosController::class,'detalle_admin'])->name('admin-pedidos.detalle');
+Route::get('/admin-pedidos/editar/{pedido}',[PedidosController::class,'editar'])->name('admin-pedidos.edit');
+Route::patch('/admin-pedidos/{pedido}/actualizar', [PedidosController::class,'update'])->name('admin-pedidos.update');
 

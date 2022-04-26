@@ -50,7 +50,8 @@
                 <li class="{{request()->routeIs('admin-categoria.*')? 'active' : '' }}">
                     <a href="{{route('admin-categoria.index')}}">Categorias</a>
                 </li>
-                <li><a href="#">comandos</a></li>
+                <li class="{{request()->routeIs('admin-categoria.*')? 'active' : '' }}">
+                    <a href="{{route('admin-pedidos.index')}}">comandos</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
